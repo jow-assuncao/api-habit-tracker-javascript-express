@@ -1,7 +1,12 @@
 import { startHttpServer } from "./http/index.js";
+import { prisma } from "../shared/infra/prisma/client.js";
 
 // This is the real entry point
 export async function bootstrap() {
-  console.log("server");
-  await startHttpServer();
+  try {
+    await prisma.$connect();
+    await startHttpServer();
+  } catch (err) {
+    console.error(err);
+  }
 }
