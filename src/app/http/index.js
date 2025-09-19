@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 
 import { healthRouter } from "../../modules/health/routes.js";
+import { habitsRouter } from "../../modules/habits/route.js";
 
 // This is RESTful entry point
 export async function startHttpServer() {
@@ -10,6 +11,7 @@ export async function startHttpServer() {
   app.use(express.json());
 
   app.use("/health", healthRouter);
+  app.use("/habits", habitsRouter);
 
   console.log("app");
 
