@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "api-habit-tracker-javascript-express",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
