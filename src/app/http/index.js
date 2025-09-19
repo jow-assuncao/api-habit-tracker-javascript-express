@@ -3,6 +3,7 @@ import { createServer } from "http";
 
 import { healthRouter } from "../../modules/health/routes.js";
 
+// This is RESTful entry point
 export async function startHttpServer() {
   const app = express();
 
