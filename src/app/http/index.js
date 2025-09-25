@@ -2,6 +2,8 @@ import express from "express";
 import { createServer } from "http";
 
 import { healthRouter } from "../../modules/health/routes.js";
+import { habitRoutes } from "../../modules/tasks/routes/habits.js";
+import { habitWeekdayRoutes } from "../../modules/tasks/routes/habitweekday.js";
 
 // This is RESTful entry point
 export async function startHttpServer() {
@@ -10,6 +12,8 @@ export async function startHttpServer() {
   app.use(express.json());
 
   app.use("/health", healthRouter);
+  app.use("/habits", habitRoutes);
+  app.use("/habitweekday", habitWeekdayRoutes);
 
   console.log("app");
 
