@@ -1,6 +1,5 @@
-import { bootstrap } from "./app/main.js";
-
 import "dotenv/config";
+import { bootstrap } from "./app/main.js";
 
 bootstrap();
 
