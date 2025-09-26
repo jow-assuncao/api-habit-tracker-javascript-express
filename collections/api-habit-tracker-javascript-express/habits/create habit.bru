@@ -4,8 +4,15 @@ meta {
   seq: 1
 }
 
-get {
+post {
   url: http://localhost:3000/habits
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "user_id": 1,
+    "habit": "new habit"
+  }
 }
