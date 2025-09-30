@@ -5,7 +5,7 @@ export async function getAllHabitsController(
   res
 ) {
 
-  // Create a habit
+  // Get all habits
   const habits = await getAllHabits();
 
   return res.status(200).json(habits);
