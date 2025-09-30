@@ -5,5 +5,5 @@ export const createHabitSchema = z.object({
 });
 
 export const deleteHabitSchema = z.object({
-  id: z.string().transform((val) => parseInt(val, 10)).pipe(z.number().int().positive()),
+  id: z.string().uuid("Habit ID must be a valid UUID"),
 });

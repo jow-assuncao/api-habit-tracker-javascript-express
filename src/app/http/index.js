@@ -18,7 +18,7 @@ export async function startHttpServer() {
 
   app.use("/health", healthRouter);
   app.use("/habits", habitRoutes);
-  app.use("/habitweekday", habitWeekdayRoutes);
+  app.use("/habit-weekday", habitWeekdayRoutes);
   app.use("/weekdays", weekdayRoutes);
 
   console.log("app");

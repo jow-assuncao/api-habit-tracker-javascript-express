@@ -9,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
+  id       String  @id @default(uuid())
   email    String  @unique
   password String
   habits   Habit[]
@@ -18,8 +18,8 @@ model User {
 }
 
 model Habit {
-  id            Int            @id @default(autoincrement())
-  userId        Int            @map("user_id")
+  id            String         @id @default(uuid())
+  userId        String         @map("user_id")
   habit         String
   habitWeekdays HabitWeekday[]
   user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -28,7 +28,7 @@ model Habit {
 }
 
 model Weekday {
-  id            Int            @id @default(autoincrement())
+  id            String         @id @default(uuid())
   weekday       String         @unique
   habitWeekdays HabitWeekday[]
 
@@ -36,8 +36,8 @@ model Weekday {
 }
 
 model HabitWeekday {
-  habitId   Int     @map("habit_id")
-  weekdayId Int     @map("weekday_id")
+  habitId   String  @map("habit_id")
+  weekdayId String  @map("weekday_id")
   isDone    Boolean @default(false) @map("is_done")
   habit     Habit   @relation(fields: [habitId], references: [id], onDelete: Cascade)
   weekday   Weekday @relation(fields: [weekdayId], references: [id], onDelete: Cascade)
