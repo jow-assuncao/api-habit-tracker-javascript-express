@@ -21,8 +21,6 @@ export async function startHttpServer() {
   app.use("/habit-weekday", habitWeekdayRoutes);
   app.use("/weekdays", weekdayRoutes);
 
-  console.log("app");
-
   const server = createServer(app);
 
   server.listen(3000);

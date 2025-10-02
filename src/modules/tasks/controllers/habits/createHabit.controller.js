@@ -17,7 +17,6 @@ export async function createHabitController(
 
     // Validate the weekdays
     const weekdays = await getAllWeekdays();
-    console.log(weekdays);
     const { _, weekdayIds } = createHabitWeekdaySchema.parse({habitId: newHabit.id, weekdayIds: weekdays.map(weekday => weekday.id)});
 
     // Create habit weekdays

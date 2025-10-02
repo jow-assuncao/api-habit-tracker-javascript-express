@@ -6,8 +6,6 @@ export async function updateHabitWeekdayController(req, res) {
     const habitId = req.params.habitId;
     const weekdayId = req.params.weekdayId;
 
-    console.log(habitId, weekdayId, req.body);
-
     // Validate request body
     const validatedData = updateHabitWeekdaySchema.parse({ habitId, weekdayId, ...req.body });
     const { isDone } = validatedData;
