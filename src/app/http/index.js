@@ -1,17 +1,25 @@
 import express from "express";
+import cors from "cors";
 import { createServer } from "http";
 
 import { healthRouter } from "../../modules/health/routes.js";
+import { habitRoutes } from "../../modules/tasks/routes/habits.js";
+import { habitWeekdayRoutes } from "../../modules/tasks/routes/habitweekday.js";
+import { weekdayRoutes } from "../../modules/tasks/routes/weekdays.js";
 
 // This is RESTful entry point
 export async function startHttpServer() {
   const app = express();
 
+  // Enable CORS for all routes
+  app.use(cors());
+
   app.use(express.json());
 
   app.use("/health", healthRouter);
-
-  console.log("app");
+  app.use("/habits", habitRoutes);
+  app.use("/habit-weekday", habitWeekdayRoutes);
+  app.use("/weekdays", weekdayRoutes);
 
   const server = createServer(app);
 
